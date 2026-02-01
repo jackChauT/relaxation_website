@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { ArrowLeft, Play, Pause, RotateCcw } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../translations';
+import { LanguageSwitch } from '../components/LanguageSwitch';
 
 export default function MeditationTimer() {
+  const { language } = useLanguage();
+  const t = translations[language];
   const [duration, setDuration] = useState(5);
   const [timeLeft, setTimeLeft] = useState(300);
   const [isRunning, setIsRunning] = useState(false);
@@ -42,19 +47,20 @@ export default function MeditationTimer() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 p-6">
+      <LanguageSwitch />
       <Link to="/" className="inline-flex items-center text-gray-700 hover:text-gray-900 mb-8">
         <ArrowLeft className="w-5 h-5 mr-2" />
-        Back to Home
+        {t.common.backToHome}
       </Link>
 
       <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-4xl mb-4 text-gray-800">Meditation Timer</h1>
-        <p className="text-xl text-gray-600 mb-12">Set your meditation duration and begin</p>
+        <h1 className="text-4xl mb-4 text-gray-800">{t.meditation.title}</h1>
+        <p className="text-xl text-gray-600 mb-12">{t.meditation.subtitle}</p>
 
         <div className="bg-white rounded-3xl shadow-2xl p-12 mb-8">
           {!isRunning && timeLeft === duration * 60 && (
             <div className="mb-8">
-              <label className="block text-gray-700 mb-4">Duration (minutes)</label>
+              <label className="block text-gray-700 mb-4">{t.meditation.duration}</label>
               <div className="flex gap-4 justify-center">
                 {[5, 10, 15, 20, 30].map((min) => (
                   <button
@@ -117,7 +123,7 @@ export default function MeditationTimer() {
         </div>
 
         {timeLeft === 0 && (
-          <p className="text-2xl text-purple-600 animate-pulse">Session Complete! 🙏</p>
+          <p className="text-2xl text-purple-600 animate-pulse">{t.meditation.complete}</p>
         )}
       </div>
     </div>

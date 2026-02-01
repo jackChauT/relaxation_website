@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { ArrowLeft } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../translations';
+import { LanguageSwitch } from '../components/LanguageSwitch';
 
 export default function BreathingExercise() {
-  const [phase, setPhase] = useState<'inhale' | 'hold' | 'exhale'>('inhale');
+  const { language } = useLanguage();
+  const t = translations[language];
+  const [phase, setPhase] = useState<'inhale' | 'hold' | 'exhale' | 're-hold'>('inhale');
   const [isActive, setIsActive] = useState(false);
   const [scale, setScale] = useState(1);
 
@@ -14,6 +19,7 @@ export default function BreathingExercise() {
       { name: 'inhale' as const, duration: 4000, scale: 1.5 },
       { name: 'hold' as const, duration: 4000, scale: 1.5 },
       { name: 'exhale' as const, duration: 4000, scale: 1 },
+      { name: 're-hold' as const, duration: 4000, scale: 1 },
     ];
 
     let currentPhaseIndex = 0;
@@ -35,24 +41,26 @@ export default function BreathingExercise() {
   const getInstruction = () => {
     switch (phase) {
       case 'inhale':
-        return 'Breathe In';
+        return t.breathing.inhale;
       case 'hold':
-        return 'Hold';
+      case 're-hold':
+        return t.breathing.hold;
       case 'exhale':
-        return 'Breathe Out';
+        return t.breathing.exhale;
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 p-6">
+      <LanguageSwitch />
       <Link to="/" className="inline-flex items-center text-gray-700 hover:text-gray-900 mb-8">
         <ArrowLeft className="w-5 h-5 mr-2" />
-        Back to Home
+        {t.common.backToHome}
       </Link>
 
       <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-4xl mb-4 text-gray-800">Breathing Exercise</h1>
-        <p className="text-xl text-gray-600 mb-12">Follow the circle and breathe deeply</p>
+        <h1 className="text-4xl mb-4 text-gray-800">{t.breathing.title}</h1>
+        <p className="text-xl text-gray-600 mb-12">{t.breathing.subtitle}</p>
 
         <div className="flex flex-col items-center justify-center mb-12">
           <div
@@ -67,7 +75,7 @@ export default function BreathingExercise() {
           onClick={() => setIsActive(!isActive)}
           className="px-8 py-4 bg-white text-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
         >
-          {isActive ? 'Pause' : 'Start'}
+          {isActive ? t.breathing.pause : t.breathing.start}
         </button>
       </div>
     </div>
