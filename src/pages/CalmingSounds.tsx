@@ -11,12 +11,12 @@ export default function CalmingSounds() {
   const [activeSound, setActiveSound] = useState<string | null>(null);
 
   const sounds = [
-    { id: 'rain', name: t.sounds.rain, emoji: '🌧️', color: 'bg-blue-200', src: '/sounds/rain-2.mp3' },
-    { id: 'ocean', name: t.sounds.ocean, emoji: '🌊', color: 'bg-cyan-200', src: '/sounds/ocean-waves.mp3' },
-    { id: 'forest', name: t.sounds.forest, emoji: '🌲', color: 'bg-green-200', src: '/sounds/windy-forest-and-birds-ambience.mp3' },
-    { id: 'fire', name: t.sounds.fire, emoji: '🔥', color: 'bg-orange-200', src: '/sounds/fireplace.mp3' },
-    { id: 'wind', name: t.sounds.wind, emoji: '💨', color: 'bg-gray-200', src: '/sounds/soft-wind.mp3' },
-    { id: 'birds', name: t.sounds.birds, emoji: '🐦', color: 'bg-yellow-200', src: '/sounds/chirping-birds-ambience.mp3' },
+    { id: 'rain', name: t.sounds.rain, emoji: '🌧️', color: 'bg-blue-200', src: '/relaxation_website_demo/sounds/rain-2.mp3' },
+    { id: 'ocean', name: t.sounds.ocean, emoji: '🌊', color: 'bg-cyan-200', src: '/relaxation_website_demo/sounds/ocean-waves.mp3' },
+    { id: 'forest', name: t.sounds.forest, emoji: '🌲', color: 'bg-green-200', src: '/relaxation_website_demo/sounds/windy-forest-and-birds-ambience.mp3' },
+    { id: 'fire', name: t.sounds.fire, emoji: '🔥', color: 'bg-orange-200', src: '/relaxation_website_demo/sounds/fireplace.mp3' },
+    { id: 'wind', name: t.sounds.wind, emoji: '💨', color: 'bg-gray-200', src: '/relaxation_website_demo/sounds/soft-wind.mp3' },
+    { id: 'birds', name: t.sounds.birds, emoji: '🐦', color: 'bg-yellow-200', src: '/relaxation_website_demo/sounds/chirping-birds-ambience.mp3' },
   ];
 
   const audioRefs = useRef<Record<string, HTMLAudioElement>>({});

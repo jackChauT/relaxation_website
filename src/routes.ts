@@ -46,4 +46,8 @@ export const router = createBrowserRouter([
     path: "/quotes/:id",
     Component: QuoteDetail,
   },
+  {
+    path: "*",
+    Component: Home,
+  },
 ]);

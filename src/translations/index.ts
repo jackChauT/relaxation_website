@@ -82,7 +82,7 @@ export const translations = {
     // Meditation Timer
     meditation: {
       title: 'Rest Timer',
-      subtitle: 'Set your Rest duration and begin',
+      subtitle: 'Set your Rest duration and begin. A short 10-minute break (micro-rest), with your eyes gently closed, can effectively reduce work fatigue and improve focus and overall well-being.',
       duration: 'Duration (minutes)',
       complete: 'Session Complete! 🙏',
     },
@@ -278,7 +278,7 @@ export const translations = {
     // Meditation Timer
     meditation: {
       title: '小休計時器',
-      subtitle: '設定您的小休時長並開始',
+      subtitle: '設定您的小休時長並開始。短暫的 10 分鐘休息（微休息），閉目養神，能有效舒緩工作疲勞，提升專注力與愉悅感。',
       duration: '時長（分鐘）',
       complete: '練習完成！🙏',
     },
@@ -460,7 +460,7 @@ export const translations = {
     // Meditation Timer
     meditation: {
       title: '瞑想タイマー',
-      subtitle: '瞑想時間を設定して始めましょう',
+      subtitle: '瞑想時間を設定して始めましょう。 目を優しく閉じて行う短い10分間の休憩（マイクロレスト）は、仕事の疲れを効果的に軽減し、集中力と全体的な幸福感を向上させます。',
       duration: '時間（分）',
       complete: 'セッション完了！🙏',
     },
